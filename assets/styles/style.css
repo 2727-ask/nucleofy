@@ -1,0 +1,224 @@
+:root {
+    --primary-color: #F46402;
+    --secondary-color: #050505;
+}
+
+@font-face {
+    font-family: 'Blair';
+    src: url('/assets/fonts/blair-itc-medium.ttf') format('truetype'),
+}
+
+
+/* Reset and Base Styling */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Blair, sans-serif;
+    /* Add a fallback font */
+    background-color: #fff;
+    color: var(--primary-color);
+    text-decoration: none !important;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.ml-2 {
+    margin-left: 1em;
+}
+
+.p-1 {
+    padding: 1em;
+}
+
+.section-title {
+    color: var(--primary-color);
+    font-size: clamp(2rem, 3vw, 4em)
+}
+
+.project-title {
+    color: var(--secondary-color);
+}
+
+.typewrite {
+    font-size: clamp(2rem, 3vw, 5em);
+    color: var(--secondary-color);
+}
+
+/* Banner Styling */
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Ensures it takes the full viewport height */
+    width: 100vw;
+    /* Ensures it takes the full viewport width */
+    position: relative;
+    text-align: center;
+    /* Center aligns text content */
+    overflow: hidden;
+    /* Prevents overflow of any child elements */
+    border-bottom: 1px solid var(--primary-color)
+}
+
+.banner .content {
+    z-index: 1;
+    /* Ensures text stays above background and mask */
+    padding: 1rem;
+}
+
+.content {
+    width: 85vw;
+    height: 30vh;
+    border: 1px solid var(--primary-color)
+}
+
+
+.banner .content .title {
+    font-family: Blair, sans-serif;
+    font-size: clamp(3rem, 10vw, 9em);
+    /* Responsive font size */
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.banner .content p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+/* .banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* Adjust the cloud effect size */
+    background-image: url(/assets/images/hero-bg.svg);
+    background-size: cover;
+    background-position: center, center;
+    z-index: -1;
+    mask: url(/assets/images/ink.gif);
+    mask-size: cover;
+    mask-position: center;
+    -webkit-mask: url(/assets/images/ink.gif);
+    -webkit-mask-size: cover;
+    -webkit-mask-position: center;
+    filter: blur(2px);
+} */
+
+.icon {
+    width: 30px;
+}
+
+.action-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn {
+    border-radius: 30px;
+}
+
+.social-btn {
+    color: black;
+    margin-top: 20px;
+    width: 10vw;
+}
+
+.section {
+    height: 100vh;
+}
+
+.center-thing {
+    display: grid;
+    place-content: center;
+    place-items: center;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+.column {
+    padding: 20px;
+    background-color: lightgray;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.column-4 {
+    flex: 0 0 32.33%;
+}
+
+.column-8 {
+    flex: 0 0 65.66%;
+}
+
+/* Responsive Adjustments (Optional) */
+@media (max-width: 768px) {
+    .banner .content .title {
+        font-size: clamp(1rem, 10vw, 9em);
+    }
+
+    .banner .content p {
+        font-size: 1rem;
+    }
+
+    .typewrite {
+        font-size: clamp(1rem, 3vw, 3em);
+    }
+
+    .content {
+        width: 85vw;
+        height: 25vh;
+        border: 3px solid var(--primary-color)
+    }
+
+    .social-btn {
+        margin-top: 25px;
+        width: 40vw;
+    }
+
+    .column-4,
+    .column-8 {
+        flex: 0 0 100%;
+    }
+
+    .project-title {
+        color: var(--secondary-color);
+        font-size: clamp(1rem, 1vw, 1em)
+    }
+}
