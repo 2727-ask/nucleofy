@@ -1,6 +1,14 @@
 :root {
     --primary-color: #F46402;
     --secondary-color: #050505;
+    --w-sm-100: 100%;
+    --w-md-80: 80%;
+    --wolverine-theme-color: rgb(30, 135, 240);
+    --code-studio-color: #dcbc65;
+    --wu: #FEDD03;
+    --crypto-grey: #303030;
+    --travel-color: #FF9634;
+    --j2s: #04386A;
 }
 
 @font-face {
@@ -8,13 +16,12 @@
     src: url('/assets/fonts/blair-itc-medium.ttf') format('truetype'),
 }
 
-
 /* Reset and Base Styling */
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Blair, sans-serif;
+    font-family: Blair, sans-serif !important;
     /* Add a fallback font */
     background-color: #fff;
     color: var(--primary-color);
@@ -69,7 +76,6 @@ a {
 }
 
 .typewrite {
-    font-size: clamp(2rem, 3vw, 5em);
     color: var(--secondary-color);
 }
 
@@ -115,24 +121,6 @@ a {
     font-size: 1.2rem;
     margin-top: 1rem;
 }
-
-/* .banner::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    /* Adjust the cloud effect size */
-    background-image: url(/assets/images/hero-bg.svg);
-    background-size: cover;
-    background-position: center, center;
-    z-index: -1;
-    mask: url(/assets/images/ink.gif);
-    mask-size: cover;
-    mask-position: center;
-    -webkit-mask: url(/assets/images/ink.gif);
-    -webkit-mask-size: cover;
-    -webkit-mask-position: center;
-    filter: blur(2px);
-} */
 
 .icon {
     width: 30px;
@@ -221,4 +209,104 @@ a {
         color: var(--secondary-color);
         font-size: clamp(1rem, 1vw, 1em)
     }
+}
+
+
+
+/* Media Queries */
+
+@media (min-width: 576px) {
+    .w-sm-100 {
+        width: var(--w-sm-100);
+    }
+
+    .w-sm-80vw {
+        width: 80vw;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .w-md-80 {
+        width: var(--w-md-80);
+    }
+
+    .w-md-30vw {
+        width: 30vw;
+    }
+}
+
+
+/* Bootstrap Overrides */
+
+.icon-link {
+    color: var(--primary-color) !important;
+}
+
+.btn-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.btn-wolverine {
+    color: white !important;
+    background-color: var(--wolverine-theme-color) !important;
+    border-color: var(--wolverine-theme-color) !important;
+}
+
+.bg-wolverine {
+    background-color: var(--wolverine-theme-color) !important;
+}
+
+.wolverine-color {
+    color: var(--wolverine-theme-color) !important
+}
+
+.bg-body-wolverine {
+    background-color: var(--wolverine-theme-color) !important
+}
+
+
+.codestudio-color {
+    color: var(--code-studio-color) !important
+}
+
+.check {
+    -webkit-text-stroke: 1px;
+}
+
+.bg-wu {
+    background-color: var(--wu) !important;
+}
+
+.color-wu {
+    color: var(--wu) !important;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+
+.crypto-grey {
+    background-color: var(--crypto-grey) !important;
+}
+
+.nucliofy-carausal {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.travel-color {
+    background-color: var(--travel-color);
+}
+
+.btn-j2s {
+    background-color: var(--j2s) !important;
+    color: white !important;
 }
