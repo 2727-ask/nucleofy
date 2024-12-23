@@ -1,7 +1,5 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
-import { getFirestore, collection } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
-
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
 
 const firebaseConfig = {
@@ -21,8 +19,6 @@ function getDb() {
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
         console.log("DB is",collection);
-
-        
         console.log("DB Connection Established");
         return db;
     } catch (error) {
