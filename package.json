@@ -6,7 +6,8 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "firebase": "^11.1.0"
+    "firebase": "^11.1.0",
+    "ua-parser-js": "^2.0.0"
   },
   "devDependencies": {
     "vite": "^6.0.5"

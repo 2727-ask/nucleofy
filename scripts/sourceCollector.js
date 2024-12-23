@@ -1,4 +1,6 @@
-import { collection, addDoc, getDocs, query, where, doc, updateDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs, query, where, doc, updateDoc, getDoc } from "firebase/firestore";
+import { UAParser } from "ua-parser-js";
+import { printLog } from "./appUtils";
 
 async function fetchIpAddress() {
     try {
@@ -9,6 +11,33 @@ async function fetchIpAddress() {
         console.error("Failed to fetch IP address:", error);
         return null;
     }
+}
+
+function getUserDeviceAndBrowser() {
+    const parser = new UAParser();
+    const result = parser.getResult();
+
+    const userInfo = {
+        device: {
+            type: result.device.type || "Desktop", // Fallback to Desktop if type is undefined
+            vendor: result.device.vendor || "Unknown",
+            model: result.device.model || "Unknown"
+        },
+        browser: {
+            name: result.browser.name || "Unknown",
+            version: result.browser.version || "Unknown"
+        },
+        os: {
+            name: result.os.name || "Unknown",
+            version: result.os.version || "Unknown"
+        },
+        engine: {
+            name: result.engine.name || "Unknown",
+            version: result.engine.version || "Unknown"
+        }
+    };
+
+    return userInfo; // Convert to a pretty-printed JSON string
 }
 
 async function fetchIpData(apiKey) {
@@ -27,7 +56,7 @@ async function fetchIpData(apiKey) {
             throw new Error(`Error: ${response.status} - ${response.statusText}`);
         }
         const data = await response.json();
-        console.log("Data is", data);
+        printLog("Data is", data);
         return data;
     } catch (error) {
         console.error("Failed to fetch IP data:", error);
@@ -35,9 +64,45 @@ async function fetchIpData(apiKey) {
     }
 }
 
+function getClientCookies() {
+    const cookies = document.cookie; // Retrieve all cookies as a single string
+    const cookieObject = {};
+
+    if (cookies) {
+        cookies.split(";").forEach(cookie => {
+            const [key, value] = cookie.split("=").map(part => part.trim());
+            cookieObject[key] = decodeURIComponent(value); // Decode the cookie value
+        });
+    }
+    return cookieObject; // Return cookies as an object
+}
+
+async function fetchAndStoreAppSwitches(db) {
+    const docRef = doc(db, "appswitches", "01"); // Collection "appswitches", Document ID "01"
+    try {
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+            const data = docSnap.data();
+            // Store data in session storage
+            sessionStorage.setItem("appSwitches", JSON.stringify(data));
+            printLog("Data stored in session storage:", data);
+        } else {
+            console.error("No such document exists!");
+        }
+    } catch (error) {
+        console.error("Error fetching document:", error);
+    }
+}
+
+
+
 async function validateAndPushClientData(db, apiData) {
     try {
-        console.log("API DATA", apiData);
+        printLog("API DATA", apiData);
+        const cookies = getClientCookies();
+        const ua = getUserDeviceAndBrowser();
+        printLog("UA is", ua);
+
 
         const ip = apiData.ip;
 
@@ -65,13 +130,13 @@ async function validateAndPushClientData(db, apiData) {
             const existingData = querySnapshot.docs[0].data();
             const updatedVisitCount = (existingData.visitCount || 0) + 1;
 
-            await updateDoc(doc(db, "ip_data", docId), { visitCount: updatedVisitCount });
-            console.log(`IP address ${ip} visit count updated to ${updatedVisitCount}.`);
+            await updateDoc(doc(db, "ip_data", docId), { visitCount: updatedVisitCount, cookies: cookies, ua });
+            printLog(`IP address ${ip} visit count updated to ${updatedVisitCount}.`);
         } else {
             // Add new entry if IP address doesn't exist
             apiData.visitCount = 1; // Initialize visit count
-            await addDoc(ipDataCollection, apiData);
-            console.log(`IP address ${ip} successfully added to Firestore.`);
+            await addDoc(ipDataCollection, { apiData, cookies, ua });
+            printLog(`IP address ${ip} successfully added to Firestore.`);
         }
     } catch (error) {
         console.error("Error:", error.message);
@@ -81,5 +146,6 @@ async function validateAndPushClientData(db, apiData) {
 export {
     fetchIpAddress,
     fetchIpData,
-    validateAndPushClientData
+    validateAndPushClientData,
+    fetchAndStoreAppSwitches
 };

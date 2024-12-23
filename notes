@@ -20,20 +20,22 @@
 
 Todo:
 
+No of Visitors
+Footer 
+Compress Images
+enable disable logs
+testimonials
+easter eggs
+
+
+
+Done:
 Tech Stack 
 IP Collector
 collect cookies
-Mac Address Collector
-No of Visitors
-Footer 
 Skills
 Experience
-Compress Images
 
-
-testimonials
-
-easter eggs
 
 
 Add animations like github.com
@@ -43,7 +45,16 @@ Testing Links
 
 
 
-IP Collector
+
+
+
+
+
+
+
+
+
+
 
 Write a javascript function to collect IP address from the client and store it in firebase cloud firestore.
 
@@ -63,7 +74,6 @@ curl 'https://api.ipdata.co/?api-key=eca677b284b3bac29eb72f5e496aa9047f26543605e
   -H 'sec-fetch-mode: cors' \
   -H 'sec-fetch-site: same-site' \
   -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
-
 
 
 

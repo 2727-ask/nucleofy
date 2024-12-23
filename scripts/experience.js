@@ -1,3 +1,5 @@
+import { printLog } from "./appUtils";
+
 function createExperienceCards(experiences) {
     const container = document.getElementById("experience-container");
 
@@ -64,7 +66,7 @@ function createSkills(skills, type, skillSectionTitle, skillRow) {
 
     skills.map((skill) => {
         if (skill.type === type) {
-            console.log("Skill", skill);
+            printLog("Skill", skill);
             const skillCard = document.createElement('div');
             const skillImage = document.createElement('img');
             const skillTitle = document.createElement('p');

@@ -1,7 +1,8 @@
 import { getDb } from './db.js';
-import { fetchIpAddress, fetchIpData, validateAndPushClientData } from './sourceCollector.js';
+import { fetchAndStoreAppSwitches, fetchIpAddress, fetchIpData, validateAndPushClientData } from './sourceCollector.js';
 import { techStack } from './techstack.js';
 import { createExperienceCards, createSkills, createEducation } from "./experience.js";
+import { printLog } from './appUtils.js';
 const experienceData = [
     {
         orgName: "Western Union",
@@ -336,9 +337,10 @@ function currentYear() {
 
 
 async function initializeNucleofy() {
-    console.log("Initializing Nucleofy....");
-    console.log("Establishing DB Connection....");
+    printLog("Initializing Nucleofy....");
+    printLog("Establishing DB Connection....");
     let db = getDb();
+    fetchAndStoreAppSwitches(db);
 
     createExperienceCards(experienceData);
     currentYear();

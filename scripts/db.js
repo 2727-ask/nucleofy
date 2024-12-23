@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore'
+import { printLog } from './appUtils';
 
 
 
@@ -18,10 +19,10 @@ function getDb() {
     try {
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
-        console.log("DB Connection Established");
+        printLog("DB Connection Established");
         return db;
     } catch (error) {
-        console.log("Error occured while connecting to the DB", error);
+        printLog("Error occured while connecting to the DB", error);
         return null;
     }
 }

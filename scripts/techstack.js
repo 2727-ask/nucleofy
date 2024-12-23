@@ -1,3 +1,4 @@
+import { printLog } from "./appUtils";
 
 
 
@@ -24,7 +25,7 @@ function techStack(selector, stacktitle, technologies, client_side_skills) {
         flexBox.appendChild(service_container);
     });
 
-    console.log(flexBox);
+    printLog(flexBox);
     
 
     selector.appendChild(flexBox);
