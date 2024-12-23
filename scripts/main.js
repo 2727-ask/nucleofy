@@ -1,4 +1,4 @@
-import { getDb, collection } from './db.js';
+import { getDb } from './db.js';
 import { fetchIpAddress, fetchIpData, validateAndPushClientData } from './sourceCollector.js';
 import { techStack } from './techstack.js';
 import { createExperienceCards, createSkills, createEducation } from "./experience.js";
@@ -369,7 +369,7 @@ async function initializeNucleofy() {
     techStack(cryptostack, "Crypto Track Tech Stack", ['Python', 'Flutter', 'Firebase'], client_side_skills)
 
     const ipDetails = await fetchIpData("cb5dee916cc6f967093816bff6eb843fdfa97826fe476d9d02d714c7");
-    await validateAndPushClientData(db, collection, ipDetails);
+    await validateAndPushClientData(db, ipDetails);
 
 }
 

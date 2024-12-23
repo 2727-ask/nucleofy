@@ -1,3 +1,5 @@
+import { collection, addDoc, getDocs, query, where, doc, updateDoc } from "firebase/firestore";
+
 async function fetchIpAddress() {
     try {
         const response = await fetch("https://api.ipify.org?format=json"); // Use ipify API
@@ -26,20 +28,18 @@ async function fetchIpData(apiKey) {
         }
         const data = await response.json();
         console.log("Data is", data);
-        
         return data;
     } catch (error) {
-        console.error('Failed to fetch IP data:', error);
+        console.error("Failed to fetch IP data:", error);
         throw error;
     }
 }
 
-async function validateAndPushClientData(db, collection, apiData) {    
+async function validateAndPushClientData(db, apiData) {
     try {
         console.log("API DATA", apiData);
-        
+
         const ip = apiData.ip;
-        const cookies = document.cookie;
 
         // Validate IP address
         if (!ip) {
@@ -54,27 +54,32 @@ async function validateAndPushClientData(db, collection, apiData) {
             }
         }
 
-        // Check if the IP address is unique
-        console.log("DB in client is", db);
-        
-        const existingDoc = await collection(db, "ip_data").where("ip", "==", ip).get();
-        if (!existingDoc.empty) {
-            console.log(`IP address ${ip} already exists in the database.`);
-            return;
-        }
+        // Check if IP address already exists in Firestore
+        const ipDataCollection = collection(db, "ip_data");
+        const q = query(ipDataCollection, where("ip", "==", ip));
+        const querySnapshot = await getDocs(q);
 
-        // Push to Firestore
-        await collection(db, "ip_data").add(apiData);
-        console.log(`IP address ${ip} successfully added to Firestore.`);
+        if (!querySnapshot.empty) {
+            // Update visit count if the IP address already exists
+            const docId = querySnapshot.docs[0].id;
+            const existingData = querySnapshot.docs[0].data();
+            const updatedVisitCount = (existingData.visitCount || 0) + 1;
+
+            await updateDoc(doc(db, "ip_data", docId), { visitCount: updatedVisitCount });
+            console.log(`IP address ${ip} visit count updated to ${updatedVisitCount}.`);
+        } else {
+            // Add new entry if IP address doesn't exist
+            apiData.visitCount = 1; // Initialize visit count
+            await addDoc(ipDataCollection, apiData);
+            console.log(`IP address ${ip} successfully added to Firestore.`);
+        }
     } catch (error) {
         console.error("Error:", error.message);
     }
 }
 
-
 export {
     fetchIpAddress,
     fetchIpData,
     validateAndPushClientData
-}
-
+};

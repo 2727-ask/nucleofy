@@ -1,5 +1,14 @@
 {
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
   "dependencies": {
     "firebase": "^11.1.0"
+  },
+  "devDependencies": {
+    "vite": "^6.0.5"
   }
 }
