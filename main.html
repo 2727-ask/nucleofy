@@ -27,7 +27,10 @@
             </div>
         </nav>
         <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
-            <div class="col-md-6 p-lg-5 mx-auto my-5">
+            <div class="col-md-6 p-lg-5 mx-auto">
+                <div class="home-img">
+                    <img class="img-responsive machintosh-1" src="/assets/images/devs/machintosh.webp" alt="" srcset="">
+                </div>
                 <h1 class="display-3 fw-bold">Ashutosh Kumbhar</h1>
                 <h3 class="fw-normal text-muted mb-3 typewrite" data-period="2000" data-type='[
                 "I write clean and resilient code.", 
@@ -52,12 +55,12 @@
                 "I handle failures gracefully "
             ]'></h3>
                 <div class="d-flex gap-3 justify-content-center lead fw-normal mt-5">
-                    <button class="btn btn-primary" type="submit"><i class="bi bi-linkedin"></i> <span
-                            class="d-none d-md-inline d-lg-inline">LinkedIn</span></button>
-                    <button class="btn btn-primary" type="submit"><i class="bi bi-github"></i> <span
-                            class="d-none d-md-inline d-lg-inline">Github</span></button>
-                    <button class="btn btn-primary" type="submit"><i class="bi bi-google"></i> <span
-                            class="d-none d-md-inline d-lg-inline">Email</span></button>
+                    <a class="btn btn-primary" href="https://www.linkedin.com/in/ashutosh-kumbhar/" target="_blank"><i
+                            class="bi bi-linkedin"></i> <span class="d-none d-md-inline d-lg-inline">LinkedIn</span></a>
+                    <a class="btn btn-primary" href="https://github.com/2727-ask/" target="_blank"><i
+                            class="bi bi-github"></i> <span class="d-none d-md-inline d-lg-inline">Github</span></a>
+                    <a href="mailto:ashutoshkumbhar27@gmail.com" class="btn btn-primary"><i class="bi bi-google"></i>
+                        <span class="d-none d-md-inline d-lg-inline">Email</span></a>
                 </div>
             </div>
             <div class="product-device shadow-sm d-none d-md-block"></div>
@@ -71,7 +74,7 @@
                 <h2 class="display-5">Code Studio</h2>
                 <p class="lead">Blazingly fast, secure web based ide with code compiler</p>
             </div>
-            <div class="bg-body-tertiary shadow-sm mx-auto w-sm-100 w-md-80"
+            <div class="bg-body-dark shadow-sm mx-auto w-sm-100 w-md-80"
                 style="height: 100%; border-radius: 21px 21px 0 0;">
                 <img style="width: 100%;" src="assets/images/devs/codestudio1.png" alt="" srcset="">
             </div>
@@ -101,6 +104,9 @@
                             languages</li>
                     </ul>
                 </div>
+
+                <div id="codeStudioTechStack"></div>
+
             </div>
         </div>
     </div>
@@ -141,6 +147,8 @@
                             25➕ Scrum teams at Western Union</li>
                     </ul>
                 </div>
+
+                <div id="posdevTechStack"></div>
             </div>
             <br>
         </div>
@@ -156,7 +164,9 @@
                 most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system,
                 extensive prebuilt components, and powerful JavaScript plugins.</p> -->
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-                <button type="button" class="btn btn-wolverine  btn-lg px-4 me-sm-3">Enquiry</button>
+                <a href="mailto:ashutoshkumbhar27@gmail.com?subject=Enquiry%20For%20Wolverine%20DCMS&body=Hello,%20Team%20Codeo,%20I%20need%20more%20information%20on%20Wolverine%20Software"
+                    style="text-decoration: none;" type="button"
+                    class="btn btn-wolverine  btn-lg px-4 me-sm-3">Enquiry</a>
             </div>
         </div>
         <div class="overflow-hidden" style="max-height: 50vh;">
@@ -210,12 +220,16 @@
                             Report templating engine</li>
                     </ul>
                 </div>
+                <br>
+
+                <div id="wolverine-stack"></div>
             </div>
         </div>
+
     </div>
 
     <div class="px-4 pt-5 my-5 text-center border-bottom">
-        <h1 class="display-4 fw-bold text-body-emphasis">CryptoTrack</h1>
+        <h1 class="display-4 fw-bold crypto-track-color">CryptoTrack</h1>
         <p class="lead">Cryptocurrency Price tracker application with news feed</p>
 
         <div style="height: 50%;">
@@ -244,6 +258,23 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="bg-body-tertiary shadow-sm mx-auto w-md-80 mt-3" style="height: 100%; border-radius: 21px 21px 0 0;">
+            <div>
+                <ul class="list-group">
+                    <li class="list-group-item"><i class="bi bi-check-circle crypto-track-color check"></i> Cross Platform Mobile Application</li>
+                    <li class="list-group-item"><i class="bi bi-check-circle crypto-track-color check"></i> Leverages Flutter UI tool Kit witk Bloc State Management</li>
+                    <li class="list-group-item"><i class="bi bi-check-circle crypto-track-color check"></i> Scrap realtime data from crypto sites using python3 libraries like Beautiful Soup 4</li>
+                    <li class="list-group-item"><i class="bi bi-check-circle crypto-track-color check"></i> Uses Yahoo Finance API for latest news feeds</li>
+                    <li class="list-group-item"><i class="bi bi-check-circle crypto-track-color check"></i> Dump realtime data into Firebase Cloud Firestore</li>
+                    <li class="list-group-item"><i class="bi bi-check-circle crypto-track-color check"></i> Realtime Price Visualization</li>
+                </ul>
+            </div>
+            <br>
+
+            <div id="crypto-stack"></div>
+            <br>
         </div>
         <br>
     </div>
@@ -291,7 +322,7 @@
 
     <div class="px-4 pt-5 my-5 text-center border-bottom bg-body-tertiary">
         <h1 class="display-4 fw-bold text-body-emphasis">JSON To TS</h1>
-        <p class="lead">An self-developed recurssive algorithm to convert JSON to TypeScript</p>
+        <p class="lead">A self-developed recurssive algorithm to convert JSON to TypeScript</p>
 
         <div class="bg-body-dark shadow-sm mx-auto w-sm-100 w-md-80"
             style="height: 100%; border-radius: 21px 21px 0 0;">
@@ -305,14 +336,83 @@
         <br>
     </div>
 
+    <!-- Experience -->
+
+
+    <div class="px-4 pt-5 my-5 text-center border-bottom text-dark">
+        <h1 class="display-4 fw-bold text-dark">My Experience</h1>
+        <p class="lead">An overview of my professional industry experience.</p>
+        <br>
+        <div id="experience-container">
+        </div>
+    </div>
+
+
+    <div class="px-4 pt-5 my-5 text-center border-bottom text-bg-dark">
+        <h1 class="display-4 fw-bold ">My Skill Set</h1>
+        <p class="lead">A comprehensive list of technologies I have explored till now.</p>
+
+        <div class="row justify-content-center" id="mySkills">
+
+        </div>
+        <br>
+    </div>
+
+
+
+    <div class="px-4 pt-5 my-5 text-center border-bottom text-dark">
+        <h1 class="display-4 fw-bold ">Education</h1>
+        <div class="mb-3 dashboard-changelog color-bg-default border color-border-default p-3 rounded-2"
+            id="education-list">
+
+        </div>
+    </div>
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Footerz -->
+
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-body-secondary">© 2019 - <span id="yearnow"></span>&nbsp;&nbsp; A . S . K</p>
+
+            <a href="/"
+                class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
+
+            <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+            </ul>
+        </footer>
+    </div>
+
+
+
+
+
+
+
+    <script type="module" src="assets/scripts/main.js"></script>
 </body>
-
-<script>
-
-</script>
 
 </html>

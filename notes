@@ -11,7 +11,7 @@
 9) Portfolio Manager
 10) White-labeled Ecommerce application
 11) Travel iternary planner
-12) APS (Agent Peripheral Services)[Pinpad, Veriphone, Money Order Printer]
+12) APS (Agent Peripheral Services)[Pinpad, Veriphone, Money Order Printer, RSI, DSP, TermAuth using P12 certificate]
 13) Hospital Bed Occupancy Manager
 14) Reel Downloader
 15) Json to Typescript Convertor
@@ -22,15 +22,127 @@ Todo:
 
 Tech Stack 
 IP Collector
+collect cookies
 Mac Address Collector
 No of Visitors
 Footer 
 Skills
 Experience
+Compress Images
 
 
+testimonials
+
+easter eggs
+
+
+Add animations like github.com
 
 Hosting
-
 Testing Links
 
+
+
+IP Collector
+
+Write a javascript function to collect IP address from the client and store it in firebase cloud firestore.
+
+cb5dee916cc6f967093816bff6eb843fdfa97826fe476d9d02d714c7
+
+
+curl 'https://api.ipdata.co/?api-key=eca677b284b3bac29eb72f5e496aa9047f26543605efe99ff2ce35c9' \
+  -H 'accept: */*' \
+  -H 'accept-language: en-IN,en;q=0.9' \
+  -H 'origin: https://ipdata.co' \
+  -H 'priority: u=1, i' \
+  -H 'referer: https://ipdata.co/' \
+  -H 'sec-ch-ua: "Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "macOS"' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: same-site' \
+  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
+
+
+
+
+I get following data from an api. I want to validate the data, and push it to the firebase cloud firestore.  Note that every ip address should be unique in database. 
+
+{
+    "ip": "184.179.194.20",
+    "is_eu": false,
+    "city": "Glendale",
+    "region": "Arizona",
+    "region_code": "AZ",
+    "region_type": "state",
+    "country_name": "United States",
+    "country_code": "US",
+    "continent_name": "North America",
+    "continent_code": "NA",
+    "latitude": 33.53390121459961,
+    "longitude": -112.17220306396484,
+    "postal": "85301",
+    "calling_code": "1",
+    "flag": "https://ipdata.co/flags/us.png",
+    "emoji_flag": "🇺🇸",
+    "emoji_unicode": "U+1F1FA U+1F1F8",
+    "asn": {
+        "asn": "AS22773",
+        "name": "Cox Communications Inc",
+        "domain": "cox.com",
+        "route": "184.179.128.0/17",
+        "type": "business"
+    },
+    "company": {
+        "name": "Cox Communications",
+        "domain": "cox.com",
+        "network": "184.179.128.0/17",
+        "type": "business"
+    },
+    "carrier": {
+        "name": "Softcom Internet Communications, Inc",
+        "mcc": "313",
+        "mnc": "850"
+    },
+    "languages": [
+        {
+            "name": "English",
+            "native": "English",
+            "code": "en"
+        }
+    ],
+    "currency": {
+        "name": "US Dollar",
+        "code": "USD",
+        "symbol": "$",
+        "native": "$",
+        "plural": "US dollars"
+    },
+    "time_zone": {
+        "name": "America/Phoenix",
+        "abbr": "MST",
+        "offset": "-0700",
+        "is_dst": false,
+        "current_time": "2024-12-22T05:20:58-07:00"
+    },
+    "threat": {
+        "is_tor": false,
+        "is_vpn": false,
+        "is_icloud_relay": false,
+        "is_proxy": false,
+        "is_datacenter": false,
+        "is_anonymous": false,
+        "is_known_attacker": false,
+        "is_known_abuser": false,
+        "is_threat": false,
+        "is_bogon": false,
+        "blocklists": [],
+        "scores": {
+            "vpn_score": 0,
+            "proxy_score": 0,
+            "threat_score": 98,
+            "trust_score": 67
+        }
+    }
+}
