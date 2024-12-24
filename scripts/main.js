@@ -1,7 +1,8 @@
-import { getDb, collection } from './db.js';
-import { fetchIpAddress, fetchIpData, validateAndPushClientData } from './sourceCollector.js';
+import { getDb } from './db.js';
+import { fetchAndStoreAppSwitches, fetchIpAddress, fetchIpData, validateAndPushClientData } from './sourceCollector.js';
 import { techStack } from './techstack.js';
 import { createExperienceCards, createSkills, createEducation } from "./experience.js";
+import { printLog, setNavBarTitle } from './appUtils.js';
 const experienceData = [
     {
         orgName: "Western Union",
@@ -336,9 +337,11 @@ function currentYear() {
 
 
 async function initializeNucleofy() {
-    console.log("Initializing Nucleofy....");
-    console.log("Establishing DB Connection....");
+    printLog("Initializing Nucleofy....");
+    printLog("Establishing DB Connection....");
     let db = getDb();
+    fetchAndStoreAppSwitches(db);
+    setNavBarTitle();
 
     createExperienceCards(experienceData);
     currentYear();
@@ -369,7 +372,7 @@ async function initializeNucleofy() {
     techStack(cryptostack, "Crypto Track Tech Stack", ['Python', 'Flutter', 'Firebase'], client_side_skills)
 
     const ipDetails = await fetchIpData("cb5dee916cc6f967093816bff6eb843fdfa97826fe476d9d02d714c7");
-    await validateAndPushClientData(db, collection, ipDetails);
+    await validateAndPushClientData(db, ipDetails);
 
 }
 

@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "HTML DOM Checker",
+    "version": "1.0",
+    "description": "Checks for specific HTML components in the DOM and extracts data.",
+    "permissions": [
+        "scripting",
+        "activeTab"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    }
+}
