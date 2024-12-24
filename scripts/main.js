@@ -2,7 +2,7 @@ import { getDb } from './db.js';
 import { fetchAndStoreAppSwitches, fetchIpAddress, fetchIpData, validateAndPushClientData } from './sourceCollector.js';
 import { techStack } from './techstack.js';
 import { createExperienceCards, createSkills, createEducation } from "./experience.js";
-import { printLog } from './appUtils.js';
+import { printLog, setNavBarTitle } from './appUtils.js';
 const experienceData = [
     {
         orgName: "Western Union",
@@ -341,6 +341,7 @@ async function initializeNucleofy() {
     printLog("Establishing DB Connection....");
     let db = getDb();
     fetchAndStoreAppSwitches(db);
+    setNavBarTitle();
 
     createExperienceCards(experienceData);
     currentYear();

@@ -43,6 +43,16 @@ function calculateTimeSpent() {
 }
 
 
+function setNavBarTitle() {
+    let ss = getAppSwitchesFromSessionStorage();
+    if(ss && ss.navbar_title) {
+        document.getElementById("navbar_title").innerText = ss.navbar_title;
+    }else {
+        document.getElementById("navbar_title").innerText = "Hello World";
+    }
+}
+
+
 window.addEventListener("load", () => {
     startTime = Date.now();
 
@@ -60,4 +70,4 @@ window.addEventListener("beforeunload", () => {
 
 
 
-export { printLog };
+export { printLog, setNavBarTitle };

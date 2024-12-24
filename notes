@@ -156,3 +156,8 @@ I get following data from an api. I want to validate the data, and push it to th
         }
     }
 }
+
+
+
+
+<div class="uds-person-profile is-style-large" style=""><div class="profile-img-container"><div class="profile-img-placeholder"><img src="https://webapp4.asu.edu/photo-ws/directory_photo/1232839?blankImage2=1" class="profile-img" alt="Portrait of Ruben Acuna" decoding="async" loading="lazy"></div></div><div class="person"><h3 class="person-name"><a href="https://search.asu.edu/profile/1232839">Ruben Acuna</a></h3><div class="person-profession"><h4><span>Assistant Teaching Professor</span></h4><h4><span></span></h4></div><ul class="person-contact-info"><li><a href="mailto:Ruben.Acuna@asu.edu" aria-label="Email user" data-ga-event="link" data-ga-action="click" data-ga-name="onclick" data-ga-type="internal link" data-ga-region="main content" data-ga-section="racuna1" data-ga="Ruben.Acuna@asu.edu">Ruben.Acuna@asu.edu</a></li></ul><div><p class="person-description">Ruben Acuña is a software engineering Assistant Teaching Professor in the School of Computing and Augmented Intelligence. His background is primarily in algorithm design, compilers (static and dynamic analysis), and bioinformatics.</p></div></div></div>
