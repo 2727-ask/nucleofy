@@ -1,4 +1,4 @@
-import { printLog } from "./appUtils";
+import { printLog } from "./appUtils.js";
 
 
 

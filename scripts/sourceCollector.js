@@ -1,6 +1,6 @@
 import { collection, addDoc, getDocs, query, where, doc, updateDoc, getDoc } from "firebase/firestore";
 import { UAParser } from "ua-parser-js";
-import { printLog } from "./appUtils";
+import { printLog } from "./appUtils.js";
 
 async function fetchIpAddress() {
     try {

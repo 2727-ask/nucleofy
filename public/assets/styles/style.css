@@ -14,7 +14,7 @@
 
 @font-face {
     font-family: 'Blair';
-    src: url('/assets/fonts/blair-itc-medium.ttf') format('truetype'),
+    src: url('../fonts/blair-itc-medium.ttf') format('truetype'),
 }
 
 /* Reset and Base Styling */

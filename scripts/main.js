@@ -3,6 +3,7 @@ import { fetchAndStoreAppSwitches, fetchIpAddress, fetchIpData, validateAndPushC
 import { techStack } from './techstack.js';
 import { createExperienceCards, createSkills, createEducation } from "./experience.js";
 import { printLog, setNavBarTitle } from './appUtils.js';
+
 const experienceData = [
     {
         orgName: "Western Union",

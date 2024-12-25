@@ -1,4 +1,4 @@
-import { printLog } from "./appUtils";
+import { printLog } from "./appUtils.js";
 
 function createExperienceCards(experiences) {
     const container = document.getElementById("experience-container");
