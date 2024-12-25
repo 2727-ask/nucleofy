@@ -48,7 +48,7 @@ function setNavBarTitle() {
     if(ss && ss.navbar_title) {
         document.getElementById("navbar_title").innerText = ss.navbar_title;
     }else {
-        document.getElementById("navbar_title").innerText = "Hello World";
+        document.getElementById("navbar_title").innerText = "Ashuto.sh";
     }
 }
 
