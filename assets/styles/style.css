@@ -10,6 +10,15 @@
     --travel-color: #FF9634;
     --crypto-teack-color: #FF3F80;
     --j2s: #04386A;
+    --borderColor-default: #21262D;
+    --borderColor-muted: #21262D;
+    --ease-in-out: cubic-bezier(0.5, 0.16, 0.1, 1);
+    --ease-in: cubic-bezier(0.54, 0.12, 0.76, 0.42);
+    --ease-out: cubic-bezier(0.12, 0.62, 0.12, 0.95);
+    --headingReveal-staggerDelay: 0.1s;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-wrap: pretty;
 }
 
 @font-face {
@@ -446,4 +455,11 @@ img.lang-img {
     -ms-flex-pack: start;
     justify-content: flex-start;
 }
+
+
+.animated-button {
+    transition: background-color 100s var(--ease-out);
+}
+
+
 
