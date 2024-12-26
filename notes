@@ -16,8 +16,6 @@
 14) Reel Downloader
 15) Json to Typescript Convertor
 
-
-
 Todo:
 
 No of Visitors
@@ -26,6 +24,7 @@ Compress Images
 enable disable logs
 testimonials
 easter eggs
+SEO
 
 
 
@@ -37,23 +36,10 @@ Skills
 Experience
 
 
-
 Add animations like github.com
 
 Hosting
 Testing Links
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 Write a javascript function to collect IP address from the client and store it in firebase cloud firestore.
