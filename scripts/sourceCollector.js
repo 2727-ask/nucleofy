@@ -103,6 +103,8 @@ async function validateAndPushClientData(db, apiData) {
         const ua = getUserDeviceAndBrowser();
         printLog("UA is", ua);
 
+        const date = new Date().getDate();
+        const time = new Date().getTime();
 
         const ip = apiData.ip;
 
@@ -130,12 +132,12 @@ async function validateAndPushClientData(db, apiData) {
             const existingData = querySnapshot.docs[0].data();
             const updatedVisitCount = (existingData.visitCount || 0) + 1;
 
-            await updateDoc(doc(db, "ip_data", docId), { visitCount: updatedVisitCount, cookies: cookies, ua });
+            await updateDoc(doc(db, "ip_data", docId), { visitCount: updatedVisitCount, cookies: cookies, ua, date: date, time: time });
             printLog(`IP address ${ip} visit count updated to ${updatedVisitCount}.`);
         } else {
             // Add new entry if IP address doesn't exist
             apiData.visitCount = 1; // Initialize visit count
-            await addDoc(ipDataCollection, { apiData, cookies, ua });
+            await addDoc(ipDataCollection, { apiData, cookies, ua, date: date, time: time });
             printLog(`IP address ${ip} successfully added to Firestore.`);
         }
     } catch (error) {
